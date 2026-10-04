@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>2 Máy - Chia sẻ vị trí</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="home" class="card">
+      <h1>Chia sẻ vị trí</h1>
+      <p class="muted">Kết nối 2 máy bằng một mã phòng. Cả hai máy phải tự cấp quyền vị trí.</p>
+
+      <label for="name">Tên máy</label>
+      <input id="name" maxlength="20" placeholder="Ví dụ: iPhone của Hiếu">
+
+      <button id="createBtn" class="primary">Tạo phòng</button>
+
+      <div class="divider"><span>hoặc</span></div>
+
+      <label for="roomInput">Mã phòng</label>
+      <input id="roomInput" maxlength="6" autocomplete="off"
+             placeholder="Ví dụ: A7K92P" style="text-transform:uppercase">
+      <button id="joinBtn">Tham gia phòng</button>
+
+      <p id="error" class="error"></p>
+    </section>
+
+    <section id="room" class="hidden">
+      <div class="card roombar">
+        <div>
+          <div class="muted small">Mã phòng</div>
+          <strong id="roomCode">------</strong>
+        </div>
+        <button id="copyBtn">Sao chép</button>
+        <button id="stopBtn" class="danger">Dừng</button>
+      </div>
+
+      <div class="card">
+        <div id="status" class="status">Đang kết nối...</div>
+        <div id="members" class="members"></div>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="card small muted">
+        Lưu ý: đây là bản MVP. Vị trí chỉ được chia sẻ khi người dùng đã cấp quyền
+        định vị và đang mở trang. Không dùng để theo dõi người khác khi họ chưa đồng ý.
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
